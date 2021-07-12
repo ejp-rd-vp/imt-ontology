@@ -1,0 +1,527 @@
+@prefix : <https://w3id.org/ejp-rd/ontologies/imt#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/ejp-rd/ontologies/imt> .
+
+<https://w3id.org/ejp-rd/ontologies/imt> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000050
+<http://purl.obolibrary.org/obo/BFO_0000050> rdf:type owl:ObjectProperty ;
+                                             rdfs:label "part of" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Accelerated_assessment
+:Accelerated_assessment rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Advanced_Therapy
+:Advanced_Therapy rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Advanced_Therapy_procedure
+:Advanced_Therapy_procedure rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Animal_Model
+:Animal_Model rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Awards
+:Awards rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Biobanks
+:Biobanks rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Biomarkers
+:Biomarkers rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Cell_model
+:Cell_model rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Clinical_Development
+:Clinical_Development rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Clinical_trials_design
+:Clinical_trials_design rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Commercialisation
+:Commercialisation rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Commission_EU
+:Commission_EU rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Compassionate_use
+:Compassionate_use rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Compliance
+:Compliance rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Conditional_Approval
+:Conditional_Approval rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Consulting_and_Advice
+:Consulting_and_Advice rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Crowdfunding
+:Crowdfunding rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Directive
+:Directive rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Disease_Model
+:Disease_Model rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Drug_Discovery
+:Drug_Discovery rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Drug_Repurposing
+:Drug_Repurposing rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#EMA_EU
+:EMA_EU rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#EU_Marketing_Authorisation_Road_Map
+:EU_Marketing_Authorisation_Road_Map rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Early_access_support
+:Early_access_support rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Early_approval
+:Early_approval rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Endpoints
+:Endpoints rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Ethic_and_legal_Issues
+:Ethic_and_legal_Issues rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#European
+:European rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Exceptional_circumstances
+:Exceptional_circumstances rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#FDA_Priority_Review_Vaucher
+:FDA_Priority_Review_Vaucher rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#FDA_USA
+:FDA_USA rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Fees
+:Fees rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Foundations
+:Foundations rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Funding_source
+:Funding_source rdf:type owl:Class ;
+                rdfs:label "Funding source"^^xsd:string .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Good_Clinical_Practices
+:Good_Clinical_Practices rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#HTA
+:HTA rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#ICH
+:ICH rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#IRDiRC_Recognized_Resources
+:IRDiRC_Recognized_Resources rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#In_silico_modelling
+:In_silico_modelling rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Intellectual_property
+:Intellectual_property rdf:type owl:Class ;
+                       rdfs:label "Intellectual property"^^xsd:string .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Japan
+:Japan rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Loans
+:Loans rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Marketing_authorisation
+:Marketing_authorisation rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Medical_Devices
+:Medical_Devices rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Nan-byo_designation
+:Nan-byo_designation rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#National
+:National rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#National_laws
+:National_laws rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Natural_History
+:Natural_History rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Networks
+:Networks rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Orphan_Medicines_procedure
+:Orphan_Medicines_procedure rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Orphan_drug_designation
+:Orphan_drug_designation rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Orphan_medicines
+:Orphan_medicines rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Paediatric_medicines
+:Paediatric_medicines rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Paediatric_medicines_procedure
+:Paediatric_medicines_procedure rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Patient_Advice
+:Patient_Advice rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Patient_registries
+:Patient_registries rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Patients_information
+:Patients_information rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Personalised_Medicine
+:Personalised_Medicine rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Pharmacovigilance
+:Pharmacovigilance rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Preclinical_studies
+:Preclinical_studies rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Private
+:Private rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Project_Management_Manual
+:Project_Management_Manual rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Proof_of_principle
+:Proof_of_principle rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Public
+:Public rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Regulation
+:Regulation rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Regulatory_Agencies
+:Regulatory_Agencies rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Regulatory_Sciences
+:Regulatory_Sciences rdf:type owl:Class ;
+                     rdfs:label "Regulatory Science"^^xsd:string .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Research_and_Drug_development
+:Research_and_Drug_development rdf:type owl:Class ;
+                               rdfs:label "Research and Drug development"^^xsd:string .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Reverse_planning_approach
+:Reverse_planning_approach rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#SME_Office
+:SME_Office rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Scientific_Advice
+:Scientific_Advice rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Scientific_guidelines
+:Scientific_guidelines rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#TPP
+:TPP rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#TREAT-NMD_advisory_committee_for_therapeutics
+:TREAT-NMD_advisory_committee_for_therapeutics rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Target_Patient_Value_Profile
+:Target_Patient_Value_Profile rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Technology_Transfer_Offices
+:Technology_Transfer_Offices rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Translational_Project_Management
+:Translational_Project_Management rdf:type owl:Class ;
+                                  rdfs:label "Translational project management"^^xsd:string .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#USA
+:USA rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#WHO
+:WHO rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Data_Bases_Tools
+<https://w3id.org/ejp-rd/ontologies/imt#Data_Bases_Tools> rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Disease_Translational_Resources
+<https://w3id.org/ejp-rd/ontologies/imt#Disease_Translational_Resources> rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Orphan_drug_Medical_device_designation
+<https://w3id.org/ejp-rd/ontologies/imt#Orphan_drug_Medical_device_designation> rdf:type owl:Class .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Venture_Capital_Angel_Investment
+<https://w3id.org/ejp-rd/ontologies/imt#Venture_Capital_Angel_Investment> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+
+### The triples below are generated via SPARQL endpoint
+
+
+
+<https://w3id.org/ejp-rd/ontologies/imt#Accelerated_assessment> rdfs:label "Accelerated assessment" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Advanced_Therapy> rdfs:label "Advanced Therapy" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Advanced_Therapy_procedure> rdfs:label "Advanced Therapy procedure" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Animal_Model> rdfs:label "Animal Model" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Awards> rdfs:label "Awards" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Biobanks> rdfs:label "Biobanks" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Biomarkers> rdfs:label "Biomarkers" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Cell_model> rdfs:label "Cell model" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Clinical_Development> rdfs:label "Clinical Development" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Clinical_trials_design> rdfs:label "Clinical trials design" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Commercialisation> rdfs:label "Commercialisation" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Commission_EU> rdfs:label "Commission EU" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Compassionate_use> rdfs:label "Compassionate use" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Compliance> rdfs:label "Compliance" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Conditional_Approval> rdfs:label "Conditional Approval" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Consulting_and_Advice> rdfs:label "Consulting and Advice" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Crowdfunding> rdfs:label "Crowdfunding" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Directive> rdfs:label "Directive" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Disease_Model> rdfs:label "Disease Model" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Drug_Discovery> rdfs:label "Drug Discovery" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Drug_Repurposing> rdfs:label "Drug Repurposing" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#EMA_EU> rdfs:label "EMA EU" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#EU_Marketing_Authorisation_Road_Map> rdfs:label
+    "EU Marketing Authorisation Road Map" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Early_access_support> rdfs:label "Early access support" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Early_approval> rdfs:label "Early approval" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Endpoints> rdfs:label "Endpoints" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Ethic_and_legal_Issues> rdfs:label "Ethic and legal Issues" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#European> rdfs:label "European" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Exceptional_circumstances> rdfs:label "Exceptional circumstances" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#FDA_Priority_Review_Vaucher> rdfs:label "FDA Priority Review Vaucher" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#FDA_USA> rdfs:label "FDA USA" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Fees> rdfs:label "Fees" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Foundations> rdfs:label "Foundations" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Good_Clinical_Practices> rdfs:label "Good Clinical Practices" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#HTA> rdfs:label "HTA" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#ICH> rdfs:label "ICH" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#IRDiRC_Recognized_Resources> rdfs:label "IRDiRC Recognized Resources" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#In_silico_modelling> rdfs:label "In silico modelling" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Japan> rdfs:label "Japan" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Loans> rdfs:label "Loans" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Marketing_authorisation> rdfs:label "Marketing authorisation" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Medical_Devices> rdfs:label "Medical Devices" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Nan-byo_designation> rdfs:label "Nan-byo designation" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#National> rdfs:label "National" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#National_laws> rdfs:label "National laws" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Natural_History> rdfs:label "Natural History" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Networks> rdfs:label "Networks" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Orphan_Medicines_procedure> rdfs:label "Orphan Medicines procedure" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Orphan_drug_designation> rdfs:label "Orphan drug designation" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Orphan_medicines> rdfs:label "Orphan medicines" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Paediatric_medicines> rdfs:label "Paediatric medicines" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Paediatric_medicines_procedure> rdfs:label
+    "Paediatric medicines procedure" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Patient_Advice> rdfs:label "Patient Advice" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Patient_registries> rdfs:label "Patient registries" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Patients_information> rdfs:label "Patients information" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Personalised_Medicine> rdfs:label "Personalised Medicine" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Pharmacovigilance> rdfs:label "Pharmacovigilance" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Preclinical_studies> rdfs:label "Preclinical studies" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Private> rdfs:label "Private" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Project_Management_Manual> rdfs:label "Project Management Manual" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Proof_of_principle> rdfs:label "Proof of principle" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Public> rdfs:label "Public" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Regulation> rdfs:label "Regulation" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Regulatory_Agencies> rdfs:label "Regulatory Agencies" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Reverse_planning_approach> rdfs:label "Reverse planning approach" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#SME_Office> rdfs:label "SME Office" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Scientific_Advice> rdfs:label "Scientific Advice" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Scientific_guidelines> rdfs:label "Scientific guidelines" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#TPP> rdfs:label "TPP" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#TREAT-NMD_advisory_committee_for_therapeutics>
+  rdfs:label "TREAT-NMD advisory committee for therapeutics" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Target_Patient_Value_Profile> rdfs:label "Target Patient Value Profile" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Technology_Transfer_Offices> rdfs:label "Technology Transfer Offices" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#USA> rdfs:label "USA" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#WHO> rdfs:label "WHO" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Data_Bases_Tools> rdfs:label "Data Bases/Tools" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Disease_Translational_Resources> rdfs:label
+    "Disease/Translational Resources" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Orphan_drug_Medical_device_designation> rdfs:label
+    "Orphan drug/Medical device designation" .
+
+<https://w3id.org/ejp-rd/ontologies/imt#Venture_Capital_Angel_Investment> rdfs:label
+    "Venture Capital/Angel Investment" .
