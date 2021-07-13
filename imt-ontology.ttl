@@ -860,12 +860,12 @@
 
 _:node1126 a owl:Restriction;
   owl:onProperty <http://semanticscience.org/resource/SIO_001403>;
-  owl:someValuesFrom :Consulting_Advice .
+  owl:someValuesFrom :Consulting_and_Advice .
 
 :TREAT-NMD_advisory_committee_for_therapeutics rdfs:subClassOf _:node1126 .
 
 _:node1127 a owl:Restriction;
   owl:onProperty <http://semanticscience.org/resource/SIO_001403>;
-  owl:someValuesFrom :Consulting_Advice .
+  owl:someValuesFrom :Consulting_and_Advice .
 
 :IRDiRC_Recognized_Resources rdfs:subClassOf _:node1127 .
