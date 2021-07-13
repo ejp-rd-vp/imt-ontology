@@ -9,6 +9,14 @@
 <https://w3id.org/ejp-rd/ontologies/imt> rdf:type owl:Ontology .
 
 #################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+<http://www.w3.org/2004/02/skos/core#altLabel> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
 #    Object Properties
 #################################################################
 
@@ -17,140 +25,357 @@
                                              rdfs:label "part of" .
 
 
+###  http://purl.obolibrary.org/obo/RO_0002410
+<http://purl.obolibrary.org/obo/RO_0002410> rdf:type owl:ObjectProperty ;
+                                            rdfs:label "causally related to"^^xsd:string .
+
+
+###  http://semanticscience.org/resource/SIO_001403
+<http://semanticscience.org/resource/SIO_001403> rdf:type owl:ObjectProperty ;
+                                                 rdfs:label "is associated with"^^xsd:string .
+
+
+###  http://www.w3.org/2004/02/skos/core#related
+<http://www.w3.org/2004/02/skos/core#related> rdf:type owl:ObjectProperty ;
+                                              rdfs:label "related"^^xsd:string .
+
+
 #################################################################
 #    Classes
 #################################################################
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Accelerated_assessment
-:Accelerated_assessment rdf:type owl:Class .
+:Accelerated_assessment rdf:type owl:Class ;
+                        rdfs:label "Accelerated assessment" .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Advanced_Therapies
+:Advanced_Therapies rdf:type owl:Class ;
+                    rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                      owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                      owl:someValuesFrom :Drug_Discovery
+                                    ] ;
+                    rdfs:label "Advanced Therapies"^^xsd:string .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Advanced_Therapy
-:Advanced_Therapy rdf:type owl:Class .
+:Advanced_Therapy rdf:type owl:Class ;
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                    owl:someValuesFrom :Early_access_support
+                                  ] ;
+                  rdfs:label "Advanced Therapy" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Advanced_Therapy_procedure
-:Advanced_Therapy_procedure rdf:type owl:Class .
+:Advanced_Therapy_procedure rdf:type owl:Class ;
+                            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                              owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                              owl:someValuesFrom :Marketing_authorisation
+                                            ] ;
+                            rdfs:label "Advanced Therapy procedure" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Animal_Model
-:Animal_Model rdf:type owl:Class .
+:Animal_Model rdf:type owl:Class ;
+              rdfs:subClassOf :Disease_Model ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                owl:someValuesFrom :Preclinical_studies
+                              ] ;
+              rdfs:label "Animal Model" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Awards
-:Awards rdf:type owl:Class .
+:Awards rdf:type owl:Class ;
+        rdfs:subClassOf :Private ;
+        rdfs:label "Awards" .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Bioassays
+:Bioassays rdf:type owl:Class ;
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                             owl:someValuesFrom :Drug_Discovery
+                           ] ;
+           rdfs:label "Bioassays"^^xsd:string .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Biobanks
-:Biobanks rdf:type owl:Class .
+:Biobanks rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                            owl:someValuesFrom :Disease_Translational_Resources
+                          ] ;
+          rdfs:label "Biobanks" .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Biologics
+:Biologics rdf:type owl:Class ;
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                             owl:someValuesFrom :Drug_Discovery
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                             owl:someValuesFrom :Marketing_authorisation
+                           ] ;
+           rdfs:label "Biologics"^^xsd:string .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Biomarkers
-:Biomarkers rdf:type owl:Class .
+:Biomarkers rdf:type owl:Class ;
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                              owl:someValuesFrom :Disease_Translational_Resources
+                            ] ;
+            rdfs:label "Biomarkers" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Cell_model
-:Cell_model rdf:type owl:Class .
+:Cell_model rdf:type owl:Class ;
+            rdfs:subClassOf :Disease_Model ;
+            rdfs:label "Cell model" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Clinical_Development
-:Clinical_Development rdf:type owl:Class .
+:Clinical_Development rdf:type owl:Class ;
+                      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                        owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                        owl:someValuesFrom :Regulatory_Sciences
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                        owl:someValuesFrom :Research_and_Drug_development
+                                      ] ;
+                      rdfs:label "Clinical Development" .
 
 
-###  https://w3id.org/ejp-rd/ontologies/imt#Clinical_trials_design
-:Clinical_trials_design rdf:type owl:Class .
+###  https://w3id.org/ejp-rd/ontologies/imt#Clinical_trial_design
+:Clinical_trial_design rdf:type owl:Class ;
+                       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                         owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                         owl:someValuesFrom :Clinical_Development
+                                       ] ;
+                       rdfs:label "Clinical trial design" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Commercialisation
-:Commercialisation rdf:type owl:Class .
+:Commercialisation rdf:type owl:Class ;
+                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                     owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                     owl:someValuesFrom :Intellectual_property
+                                   ] ;
+                   rdfs:label "Commercialisation" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Commission_EU
-:Commission_EU rdf:type owl:Class .
+:Commission_EU rdf:type owl:Class ;
+               rdfs:subClassOf :Regulatory_Agencies ;
+               rdfs:label "Commission EU" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Compassionate_use
-:Compassionate_use rdf:type owl:Class .
+:Compassionate_use rdf:type owl:Class ;
+                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                     owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                     owl:someValuesFrom :Clinical_Development
+                                   ] ;
+                   rdfs:label "Compassionate use" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Compliance
-:Compliance rdf:type owl:Class .
+:Compliance rdf:type owl:Class ;
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                              owl:someValuesFrom :Marketing_authorisation
+                            ] ;
+            rdfs:label "Compliance" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Conditional_Approval
-:Conditional_Approval rdf:type owl:Class .
+:Conditional_Approval rdf:type owl:Class ;
+                      rdfs:label "Conditional Approval" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Consulting_and_Advice
-:Consulting_and_Advice rdf:type owl:Class .
+:Consulting_and_Advice rdf:type owl:Class ;
+                       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                         owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                         owl:someValuesFrom :Translational_Project_Management
+                                       ] ;
+                       rdfs:label "Consulting and Advice" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Crowdfunding
-:Crowdfunding rdf:type owl:Class .
+:Crowdfunding rdf:type owl:Class ;
+              rdfs:subClassOf :Private ;
+              rdfs:label "Crowdfunding" .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Data_Bases_Tools
+:Data_Bases_Tools rdf:type owl:Class ;
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                    owl:someValuesFrom :Disease_Translational_Resources
+                                  ] ;
+                  rdfs:label "Data Bases/Tools" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Directive
-:Directive rdf:type owl:Class .
+:Directive rdf:type owl:Class ;
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                             owl:someValuesFrom :Ethic_and_legal_Issues
+                           ] ;
+           rdfs:label "Directive" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Disease_Model
-:Disease_Model rdf:type owl:Class .
+:Disease_Model rdf:type owl:Class ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                 owl:someValuesFrom :Research_and_Drug_development
+                               ] ;
+               rdfs:label "Disease Model" .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Disease_Translational_Resources
+:Disease_Translational_Resources rdf:type owl:Class ;
+                                 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                                   owl:someValuesFrom :Research_and_Drug_development
+                                                 ] ;
+                                 rdfs:label "Disease/Translational Resources" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Drug_Discovery
-:Drug_Discovery rdf:type owl:Class .
+:Drug_Discovery rdf:type owl:Class ;
+                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                  owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                  owl:someValuesFrom :Research_and_Drug_development
+                                ] ;
+                rdfs:label "Drug Discovery" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Drug_Repurposing
-:Drug_Repurposing rdf:type owl:Class .
+:Drug_Repurposing rdf:type owl:Class ;
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                    owl:someValuesFrom :Drug_Discovery
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                    owl:someValuesFrom :Regulatory_Sciences
+                                  ] ;
+                  rdfs:label "Drug Repurposing" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#EMA_EU
-:EMA_EU rdf:type owl:Class .
+:EMA_EU rdf:type owl:Class ;
+        rdfs:subClassOf :Regulatory_Agencies ;
+        rdfs:label "EMA EU" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#EU_Marketing_Authorisation_Road_Map
-:EU_Marketing_Authorisation_Road_Map rdf:type owl:Class .
+:EU_Marketing_Authorisation_Road_Map rdf:type owl:Class ;
+                                     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                                       owl:someValuesFrom :Marketing_authorisation
+                                                     ] ;
+                                     rdfs:label "EU Marketing Authorisation Road Map" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Early_access_support
-:Early_access_support rdf:type owl:Class .
+:Early_access_support rdf:type owl:Class ;
+                      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                        owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                        owl:someValuesFrom :Regulatory_Sciences
+                                      ] ;
+                      rdfs:label "Early access support" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Early_approval
-:Early_approval rdf:type owl:Class .
+:Early_approval rdf:type owl:Class ;
+                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                  owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                  owl:someValuesFrom :Early_access_support
+                                ] ;
+                rdfs:label "Early approval" .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Efficacy
+:Efficacy rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                            owl:someValuesFrom :Preclinical_studies
+                          ] ;
+          rdfs:label "Efficacy"^^xsd:string .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Endpoints
-:Endpoints rdf:type owl:Class .
+:Endpoints rdf:type owl:Class ;
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                             owl:someValuesFrom :Clinical_Development
+                           ] ;
+           rdfs:label "Endpoints" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Ethic_and_legal_Issues
-:Ethic_and_legal_Issues rdf:type owl:Class .
+:Ethic_and_legal_Issues rdf:type owl:Class ;
+                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                          owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                          owl:someValuesFrom :Regulatory_Sciences
+                                        ] ;
+                        rdfs:label "Ethic and legal Issues" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#European
-:European rdf:type owl:Class .
+:European rdf:type owl:Class ;
+          rdfs:subClassOf :Public ;
+          rdfs:label "European" .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#European_HTA_Bodies
+:European_HTA_Bodies rdf:type owl:Class ;
+                     rdfs:subClassOf :HTA ;
+                     rdfs:label "European HTA Bodies"^^xsd:string .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Exceptional_circumstances
-:Exceptional_circumstances rdf:type owl:Class .
+:Exceptional_circumstances rdf:type owl:Class ;
+                           rdfs:label "Exceptional circumstances" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#FDA_Priority_Review_Vaucher
-:FDA_Priority_Review_Vaucher rdf:type owl:Class .
+:FDA_Priority_Review_Vaucher rdf:type owl:Class ;
+                             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                               owl:someValuesFrom :Marketing_authorisation
+                                             ] ;
+                             rdfs:label "FDA Priority Review Vaucher" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#FDA_USA
-:FDA_USA rdf:type owl:Class .
+:FDA_USA rdf:type owl:Class ;
+         rdfs:subClassOf :Regulatory_Agencies ;
+         rdfs:label "FDA USA" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Fees
-:Fees rdf:type owl:Class .
+:Fees rdf:type owl:Class ;
+      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                        owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                        owl:someValuesFrom :Marketing_authorisation
+                      ] ;
+      rdfs:label "Fees" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Foundations
-:Foundations rdf:type owl:Class .
+:Foundations rdf:type owl:Class ;
+             rdfs:subClassOf :Private ;
+             rdfs:label "Foundations" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Funding_source
@@ -159,23 +384,74 @@
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Good_Clinical_Practices
-:Good_Clinical_Practices rdf:type owl:Class .
+:Good_Clinical_Practices rdf:type owl:Class ;
+                         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                           owl:someValuesFrom :Clinical_Development
+                                         ] ;
+                         rdfs:label "Good Clinical Practices" .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Good_Laboratories_Practices
+:Good_Laboratories_Practices rdf:type owl:Class ;
+                             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                               owl:someValuesFrom :Preclinical_studies
+                                             ] ;
+                             rdfs:label "Good Laboratories Practices"^^xsd:string ;
+                             <http://www.w3.org/2004/02/skos/core#altLabel> "GLP's"^^xsd:string .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Guidelines
+:Guidelines rdf:type owl:Class ;
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                              owl:someValuesFrom :Drug_Discovery
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                              owl:someValuesFrom :Ethic_and_legal_Issues
+                            ] ;
+            rdfs:label "Guidelines"^^xsd:string .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#HTA
-:HTA rdf:type owl:Class .
+:HTA rdf:type owl:Class ;
+     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                       owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                       owl:someValuesFrom :Regulatory_Sciences
+                     ] ;
+     rdfs:label "HTA" .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#High_throughput_screening
+:High_throughput_screening rdf:type owl:Class ;
+                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                             owl:someValuesFrom :Drug_Discovery
+                                           ] ;
+                           rdfs:label "High throughput screening"^^xsd:string ;
+                           <http://www.w3.org/2004/02/skos/core#altLabel> "HTS"^^xsd:string .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#ICH
-:ICH rdf:type owl:Class .
+:ICH rdf:type owl:Class ;
+     rdfs:subClassOf :Regulatory_Agencies ;
+     rdfs:label "ICH" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#IRDiRC_Recognized_Resources
-:IRDiRC_Recognized_Resources rdf:type owl:Class .
+:IRDiRC_Recognized_Resources rdf:type owl:Class ;
+                             rdfs:label "IRDiRC Recognized Resources" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#In_silico_modelling
-:In_silico_modelling rdf:type owl:Class .
+:In_silico_modelling rdf:type owl:Class ;
+                     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                       owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                       owl:someValuesFrom :Preclinical_studies
+                                     ] ;
+                     rdfs:label "In silico modelling" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Intellectual_property
@@ -183,108 +459,253 @@
                        rdfs:label "Intellectual property"^^xsd:string .
 
 
+###  https://w3id.org/ejp-rd/ontologies/imt#International_HTA_Bodies
+:International_HTA_Bodies rdf:type owl:Class ;
+                          rdfs:subClassOf :HTA ;
+                          rdfs:label "International HTA Bodies"^^xsd:string .
+
+
 ###  https://w3id.org/ejp-rd/ontologies/imt#Japan
-:Japan rdf:type owl:Class .
+:Japan rdf:type owl:Class ;
+       rdfs:subClassOf :Public ;
+       rdfs:label "Japan" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Loans
-:Loans rdf:type owl:Class .
+:Loans rdf:type owl:Class ;
+       rdfs:subClassOf :Private ;
+       rdfs:label "Loans" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Marketing_authorisation
-:Marketing_authorisation rdf:type owl:Class .
+:Marketing_authorisation rdf:type owl:Class ;
+                         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                           owl:someValuesFrom :Regulatory_Sciences
+                                         ] ;
+                         rdfs:label "Marketing authorisation" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Medical_Devices
-:Medical_Devices rdf:type owl:Class .
+:Medical_Devices rdf:type owl:Class ;
+                 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                   owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                   owl:someValuesFrom :Early_access_support
+                                 ] ;
+                 rdfs:label "Medical Devices" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Nan-byo_designation
-:Nan-byo_designation rdf:type owl:Class .
+:Nan-byo_designation rdf:type owl:Class ;
+                     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                       owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                       owl:someValuesFrom :Early_access_support
+                                     ] ;
+                     rdfs:label "Nan-byo designation" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#National
-:National rdf:type owl:Class .
+:National rdf:type owl:Class ;
+          rdfs:subClassOf :Public ;
+          rdfs:label "National" .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#National_HTA_Bodies
+:National_HTA_Bodies rdf:type owl:Class ;
+                     rdfs:subClassOf :HTA ;
+                     rdfs:label "National HTA Bodies"^^xsd:string .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#National_laws
-:National_laws rdf:type owl:Class .
+:National_laws rdf:type owl:Class ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                 owl:someValuesFrom :Ethic_and_legal_Issues
+                               ] ;
+               rdfs:label "National laws" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Natural_History
-:Natural_History rdf:type owl:Class .
+:Natural_History rdf:type owl:Class ;
+                 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                   owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                   owl:someValuesFrom :Disease_Translational_Resources
+                                 ] ;
+                 rdfs:label "Natural History" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Networks
-:Networks rdf:type owl:Class .
+:Networks rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                            owl:someValuesFrom :Disease_Translational_Resources
+                          ] ;
+          rdfs:label "Networks" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Orphan_Medicines_procedure
-:Orphan_Medicines_procedure rdf:type owl:Class .
+:Orphan_Medicines_procedure rdf:type owl:Class ;
+                            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                              owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                              owl:someValuesFrom :Marketing_authorisation
+                                            ] ;
+                            rdfs:label "Orphan Medicines procedure" .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Orphan_drug_Medical_device_designation
+:Orphan_drug_Medical_device_designation rdf:type owl:Class ;
+                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                                          owl:someValuesFrom :Early_access_support
+                                                        ] ;
+                                        rdfs:label "Orphan drug/Medical device designation" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Orphan_drug_designation
-:Orphan_drug_designation rdf:type owl:Class .
+:Orphan_drug_designation rdf:type owl:Class ;
+                         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                           owl:someValuesFrom :Early_access_support
+                                         ] ;
+                         rdfs:label "Orphan drug designation" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Orphan_medicines
-:Orphan_medicines rdf:type owl:Class .
+:Orphan_medicines rdf:type owl:Class ;
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                    owl:someValuesFrom :Early_access_support
+                                  ] ;
+                  rdfs:label "Orphan medicines" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Paediatric_medicines
-:Paediatric_medicines rdf:type owl:Class .
+:Paediatric_medicines rdf:type owl:Class ;
+                      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                        owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                        owl:someValuesFrom :Early_access_support
+                                      ] ;
+                      rdfs:label "Paediatric medicines" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Paediatric_medicines_procedure
-:Paediatric_medicines_procedure rdf:type owl:Class .
+:Paediatric_medicines_procedure rdf:type owl:Class ;
+                                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                  owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                                  owl:someValuesFrom :Marketing_authorisation
+                                                ] ;
+                                rdfs:label "Paediatric medicines procedure" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Patient_Advice
-:Patient_Advice rdf:type owl:Class .
+:Patient_Advice rdf:type owl:Class ;
+                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                  owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                  owl:someValuesFrom :Early_access_support
+                                ] ;
+                rdfs:label "Patient Advice" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Patient_registries
-:Patient_registries rdf:type owl:Class .
+:Patient_registries rdf:type owl:Class ;
+                    rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                      owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                      owl:someValuesFrom :Disease_Translational_Resources
+                                    ] ;
+                    rdfs:label "Patient registries" .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Patients
+:Patients rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                            owl:someValuesFrom :Clinical_Development
+                          ] ;
+          rdfs:label "Patients"^^xsd:string .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Patients_information
-:Patients_information rdf:type owl:Class .
+:Patients_information rdf:type owl:Class ;
+                      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                        owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                        owl:someValuesFrom :Disease_Translational_Resources
+                                      ] ;
+                      rdfs:label "Patients information" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Personalised_Medicine
-:Personalised_Medicine rdf:type owl:Class .
+:Personalised_Medicine rdf:type owl:Class ;
+                       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                         owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                         owl:someValuesFrom :Ethic_and_legal_Issues
+                                       ] ;
+                       rdfs:label "Personalised Medicine" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Pharmacovigilance
-:Pharmacovigilance rdf:type owl:Class .
+:Pharmacovigilance rdf:type owl:Class ;
+                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                     owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                     owl:someValuesFrom :Marketing_authorisation
+                                   ] ;
+                   rdfs:label "Pharmacovigilance" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Preclinical_studies
-:Preclinical_studies rdf:type owl:Class .
+:Preclinical_studies rdf:type owl:Class ;
+                     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                       owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                       owl:someValuesFrom :Regulatory_Sciences
+                                     ] ;
+                     rdfs:label "Preclinical studies" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Private
-:Private rdf:type owl:Class .
+:Private rdf:type owl:Class ;
+         rdfs:subClassOf :Funding_source ;
+         rdfs:label "Private" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Project_Management_Manual
-:Project_Management_Manual rdf:type owl:Class .
+:Project_Management_Manual rdf:type owl:Class ;
+                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                             owl:someValuesFrom :Translational_Project_Management
+                                           ] ;
+                           rdfs:label "Project Management Manual" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Proof_of_principle
-:Proof_of_principle rdf:type owl:Class .
+:Proof_of_principle rdf:type owl:Class ;
+                    rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                      owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                      owl:someValuesFrom :Preclinical_studies
+                                    ] ;
+                    rdfs:label "Proof of principle" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Public
-:Public rdf:type owl:Class .
+:Public rdf:type owl:Class ;
+        rdfs:subClassOf :Funding_source ;
+        rdfs:label "Public" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Regulation
-:Regulation rdf:type owl:Class .
+:Regulation rdf:type owl:Class ;
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                              owl:someValuesFrom :Ethic_and_legal_Issues
+                            ] ;
+            rdfs:label "Regulation" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Regulatory_Agencies
-:Regulatory_Agencies rdf:type owl:Class .
+:Regulatory_Agencies rdf:type owl:Class ;
+                     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                       owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                       owl:someValuesFrom :Regulatory_Sciences
+                                     ] ;
+                     rdfs:label "Regulatory Agencies" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Regulatory_Sciences
@@ -298,35 +719,108 @@
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Reverse_planning_approach
-:Reverse_planning_approach rdf:type owl:Class .
+:Reverse_planning_approach rdf:type owl:Class ;
+                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                             owl:someValuesFrom :Translational_Project_Management
+                                           ] ;
+                           rdfs:label "Reverse planning approach" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#SME_Office
-:SME_Office rdf:type owl:Class .
+:SME_Office rdf:type owl:Class ;
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                              owl:someValuesFrom :Early_access_support
+                            ] ;
+            rdfs:label "SME Office" .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Safety
+:Safety rdf:type owl:Class ;
+        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                          owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                          owl:someValuesFrom :Preclinical_studies
+                        ] ;
+        rdfs:label "Safety"^^xsd:string .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Scientific_Advice
-:Scientific_Advice rdf:type owl:Class .
+:Scientific_Advice rdf:type owl:Class ;
+                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                     owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                     owl:someValuesFrom :Early_access_support
+                                   ] ;
+                   rdfs:label "Scientific Advice" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Scientific_guidelines
-:Scientific_guidelines rdf:type owl:Class .
+:Scientific_guidelines rdf:type owl:Class ;
+                       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                         owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                         owl:someValuesFrom :Early_access_support
+                                       ] ;
+                       rdfs:label "Scientific guidelines" .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Small_molecules
+:Small_molecules rdf:type owl:Class ;
+                 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                   owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                   owl:someValuesFrom :Drug_Discovery
+                                 ] ;
+                 rdfs:label "Small molecules"^^xsd:string .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#TPP
-:TPP rdf:type owl:Class .
+:TPP rdf:type owl:Class ;
+     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                       owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                       owl:someValuesFrom :Translational_Project_Management
+                     ] ;
+     rdfs:label "TPP" .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#TREAT-NMD_advisory_committee_for_therapeutics
-:TREAT-NMD_advisory_committee_for_therapeutics rdf:type owl:Class .
+:TREAT-NMD_advisory_committee_for_therapeutics rdf:type owl:Class ;
+                                               rdfs:label "TREAT-NMD advisory committee for therapeutics" ;
+                                               <http://www.w3.org/2004/02/skos/core#altLabel> "TACT"^^xsd:string .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Target_Patient_Value_Profile
-:Target_Patient_Value_Profile rdf:type owl:Class .
+:Target_Patient_Value_Profile rdf:type owl:Class ;
+                              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                                owl:someValuesFrom :Disease_Translational_Resources
+                                              ] ;
+                              rdfs:label "Target Patient Value Profile" .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Target_Validation
+:Target_Validation rdf:type owl:Class ;
+                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                     owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                     owl:someValuesFrom :Drug_Discovery
+                                   ] ;
+                   rdfs:label "Target Validation"^^xsd:string .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Technology_Transfer_Offices
-:Technology_Transfer_Offices rdf:type owl:Class .
+:Technology_Transfer_Offices rdf:type owl:Class ;
+                             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                                               owl:someValuesFrom :Translational_Project_Management
+                                             ] ;
+                             rdfs:label "Technology Transfer Offices" .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#Toxicology
+:Toxicology rdf:type owl:Class ;
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                              owl:someValuesFrom :Preclinical_studies
+                            ] ;
+            rdfs:label "Toxicology"^^xsd:string .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Translational_Project_Management
@@ -335,193 +829,43 @@
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#USA
-:USA rdf:type owl:Class .
+:USA rdf:type owl:Class ;
+     rdfs:subClassOf :Public ;
+     rdfs:label "USA" .
 
 
-###  https://w3id.org/ejp-rd/ontologies/imt#WHO
-:WHO rdf:type owl:Class .
-
-
-###  https://w3id.org/ejp-rd/ontologies/imt#Data_Bases_Tools
-<https://w3id.org/ejp-rd/ontologies/imt#Data_Bases_Tools> rdf:type owl:Class .
-
-
-###  https://w3id.org/ejp-rd/ontologies/imt#Disease_Translational_Resources
-<https://w3id.org/ejp-rd/ontologies/imt#Disease_Translational_Resources> rdf:type owl:Class .
-
-
-###  https://w3id.org/ejp-rd/ontologies/imt#Orphan_drug_Medical_device_designation
-<https://w3id.org/ejp-rd/ontologies/imt#Orphan_drug_Medical_device_designation> rdf:type owl:Class .
+###  https://w3id.org/ejp-rd/ontologies/imt#Vaccines
+:Vaccines rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty <http://semanticscience.org/resource/SIO_001403> ;
+                            owl:someValuesFrom :Drug_Discovery
+                          ] ;
+          rdfs:label "Vaccines"^^xsd:string .
 
 
 ###  https://w3id.org/ejp-rd/ontologies/imt#Venture_Capital_Angel_Investment
-<https://w3id.org/ejp-rd/ontologies/imt#Venture_Capital_Angel_Investment> rdf:type owl:Class .
+:Venture_Capital_Angel_Investment rdf:type owl:Class ;
+                                  rdfs:subClassOf :Private ;
+                                  rdfs:label "Venture Capital/Angel Investment" .
+
+
+###  https://w3id.org/ejp-rd/ontologies/imt#WHO
+:WHO rdf:type owl:Class ;
+     rdfs:subClassOf :Regulatory_Agencies ;
+     rdfs:label "WHO" .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
 
-### The triples below are generated via SPARQL endpoint
 
+_:node1126 a owl:Restriction;
+  owl:onProperty <http://semanticscience.org/resource/SIO_001403>;
+  owl:someValuesFrom :Consulting_Advice .
 
+:TREAT-NMD_advisory_committee_for_therapeutics rdfs:subClassOf _:node1126 .
 
-<https://w3id.org/ejp-rd/ontologies/imt#Accelerated_assessment> rdfs:label "Accelerated assessment" .
+_:node1127 a owl:Restriction;
+  owl:onProperty <http://semanticscience.org/resource/SIO_001403>;
+  owl:someValuesFrom :Consulting_Advice .
 
-<https://w3id.org/ejp-rd/ontologies/imt#Advanced_Therapy> rdfs:label "Advanced Therapy" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Advanced_Therapy_procedure> rdfs:label "Advanced Therapy procedure" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Animal_Model> rdfs:label "Animal Model" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Awards> rdfs:label "Awards" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Biobanks> rdfs:label "Biobanks" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Biomarkers> rdfs:label "Biomarkers" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Cell_model> rdfs:label "Cell model" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Clinical_Development> rdfs:label "Clinical Development" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Clinical_trials_design> rdfs:label "Clinical trials design" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Commercialisation> rdfs:label "Commercialisation" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Commission_EU> rdfs:label "Commission EU" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Compassionate_use> rdfs:label "Compassionate use" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Compliance> rdfs:label "Compliance" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Conditional_Approval> rdfs:label "Conditional Approval" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Consulting_and_Advice> rdfs:label "Consulting and Advice" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Crowdfunding> rdfs:label "Crowdfunding" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Directive> rdfs:label "Directive" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Disease_Model> rdfs:label "Disease Model" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Drug_Discovery> rdfs:label "Drug Discovery" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Drug_Repurposing> rdfs:label "Drug Repurposing" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#EMA_EU> rdfs:label "EMA EU" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#EU_Marketing_Authorisation_Road_Map> rdfs:label
-    "EU Marketing Authorisation Road Map" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Early_access_support> rdfs:label "Early access support" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Early_approval> rdfs:label "Early approval" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Endpoints> rdfs:label "Endpoints" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Ethic_and_legal_Issues> rdfs:label "Ethic and legal Issues" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#European> rdfs:label "European" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Exceptional_circumstances> rdfs:label "Exceptional circumstances" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#FDA_Priority_Review_Vaucher> rdfs:label "FDA Priority Review Vaucher" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#FDA_USA> rdfs:label "FDA USA" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Fees> rdfs:label "Fees" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Foundations> rdfs:label "Foundations" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Good_Clinical_Practices> rdfs:label "Good Clinical Practices" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#HTA> rdfs:label "HTA" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#ICH> rdfs:label "ICH" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#IRDiRC_Recognized_Resources> rdfs:label "IRDiRC Recognized Resources" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#In_silico_modelling> rdfs:label "In silico modelling" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Japan> rdfs:label "Japan" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Loans> rdfs:label "Loans" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Marketing_authorisation> rdfs:label "Marketing authorisation" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Medical_Devices> rdfs:label "Medical Devices" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Nan-byo_designation> rdfs:label "Nan-byo designation" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#National> rdfs:label "National" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#National_laws> rdfs:label "National laws" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Natural_History> rdfs:label "Natural History" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Networks> rdfs:label "Networks" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Orphan_Medicines_procedure> rdfs:label "Orphan Medicines procedure" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Orphan_drug_designation> rdfs:label "Orphan drug designation" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Orphan_medicines> rdfs:label "Orphan medicines" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Paediatric_medicines> rdfs:label "Paediatric medicines" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Paediatric_medicines_procedure> rdfs:label
-    "Paediatric medicines procedure" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Patient_Advice> rdfs:label "Patient Advice" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Patient_registries> rdfs:label "Patient registries" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Patients_information> rdfs:label "Patients information" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Personalised_Medicine> rdfs:label "Personalised Medicine" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Pharmacovigilance> rdfs:label "Pharmacovigilance" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Preclinical_studies> rdfs:label "Preclinical studies" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Private> rdfs:label "Private" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Project_Management_Manual> rdfs:label "Project Management Manual" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Proof_of_principle> rdfs:label "Proof of principle" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Public> rdfs:label "Public" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Regulation> rdfs:label "Regulation" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Regulatory_Agencies> rdfs:label "Regulatory Agencies" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Reverse_planning_approach> rdfs:label "Reverse planning approach" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#SME_Office> rdfs:label "SME Office" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Scientific_Advice> rdfs:label "Scientific Advice" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Scientific_guidelines> rdfs:label "Scientific guidelines" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#TPP> rdfs:label "TPP" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#TREAT-NMD_advisory_committee_for_therapeutics>
-  rdfs:label "TREAT-NMD advisory committee for therapeutics" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Target_Patient_Value_Profile> rdfs:label "Target Patient Value Profile" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Technology_Transfer_Offices> rdfs:label "Technology Transfer Offices" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#USA> rdfs:label "USA" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#WHO> rdfs:label "WHO" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Data_Bases_Tools> rdfs:label "Data Bases/Tools" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Disease_Translational_Resources> rdfs:label
-    "Disease/Translational Resources" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Orphan_drug_Medical_device_designation> rdfs:label
-    "Orphan drug/Medical device designation" .
-
-<https://w3id.org/ejp-rd/ontologies/imt#Venture_Capital_Angel_Investment> rdfs:label
-    "Venture Capital/Angel Investment" .
+:IRDiRC_Recognized_Resources rdfs:subClassOf _:node1127 .
